@@ -1,0 +1,650 @@
+
+<script>
+	$(document).ready(function(e) {
+		var lis = $('.nav > li');
+		menu_focus(lis[0], 1);
+
+		$(".fancybox").fancybox({
+			padding : 10,
+			helpers : {
+				overlay : {
+					locked : false
+				}
+			}
+		});
+
+	});
+
+	$(function() {
+		$(".player").YTPlayer();
+	});
+</script>
+
+<div ng-controller="homeController">
+
+
+	<!-- === Arrows === -->
+	<!-- <div id="arrows">
+		<div id="arrow-up" class="disabled"></div>
+		<div id="arrow-down"></div>
+		<div id="arrow-left" class="disabled visible-lg"></div>
+		<div id="arrow-right" class="disabled visible-lg"></div>
+	</div> -->
+	<!-- /.arrows -->
+
+
+	<!-- === MAIN Background === -->
+	<div class="slide story player" id="slide-1" data-slide="1"
+		data-property="{videoURL:'https://youtu.be/e56DUyuMQh8',containment:'self', autoPlay:true, mute:true, startAt:21, opacity:4, showControls:false, quality:'hd720', loop:true}">
+	<!-- <div class="slide story" id="slide-1" data-slide="1" style="overflow: hidden;"> -->
+	
+	
+		<div class="container">
+			<div id="home-row-1" class="row clearfix">
+				<div class="col-12">
+					<h1 class="font-semibold">
+						HANGOUT <span class="font-thin">AMIGOS</span>
+					</h1>
+					<h4 class="font-thin">
+						We are your <span class="font-semibold">go-to travel guide</span>
+						based in San Jose.
+					</h4>
+					<br> <br>
+				</div>
+				<!-- /col-12 -->
+			</div>
+			<!-- /row -->
+			<div id="home-row-2" class="row clearfix">
+				<!-- <div class="col-12 col-sm-4">
+					<div class="home-hover navigation-slide" data-slide="3">
+						<img src="images/s01.png">
+					</div>
+					<span class="font-semibold" style="color: #FFCC00;">FINEST PLACES</span>
+				</div> -->
+				<div class="col-12 col-sm-12">
+					<div class="home-hover navigation-slide" data-slide="5">
+					<a data-toggle="modal" data-target="#myModal" href="">
+						<img src="images/s03.png">
+					</div>
+					<span class="font-semibold">SIGN UP</span></a>
+				</div>
+				
+				<!-- <div class="col-12 col-sm-4">
+					<div class="home-hover navigation-slide" data-slide="4">
+						<img src="images/s02.png">
+					</div>
+					<span class="font-semibold" style="color: #FF3B30;">PROCESS</span>
+				</div> -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /slide1 -->
+
+	<!-- === Slide 2 === -->
+	<div class="slide story" id="slide-2" data-slide="2"
+		ng-controller="searchController">
+		<div class="container">
+			<div class="row title-row">
+				<div class="col-12 font-thin">
+					Your amigos will help you <span class="font-semibold">explore</span>
+				</div>
+			</div>
+			<!-- /row -->
+			<div class="row subtitle-row">
+				<div class="container" style="width: 600px; margin: 50px auto;">
+					<form class="searchbox">
+						<input type="search" placeholder="search your next adventure"
+							name="search" ng-model="search" class="searchbox-input">
+					</form>
+				</div>
+				<div ng-click="searchform_search()"><i class="icon icon-search"></i>
+				</div>
+			</div>
+			<div class="row content-row" style="padding: 0px;">
+				<div><i class="icon-arrow-up" style="font-size: 190%;"></i>
+				</div>
+				<div><span style="font-size: 40px;">:</span></div>
+				<div><span class="font-thin" style="font-size: 25px;">click to unveil the magic </span>
+				</div>
+			</div>
+			<!-- <div class="row line-row">
+				<div>&nbsp;</div>
+				<div>&nbsp;</div>
+			</div>/row -->
+		</div>
+	</div>
+	<!-- /slide2 -->
+
+	<!-- === SLide 3 - Portfolio -->
+	<div class="slide story" id="slide-3" data-slide="3"
+		ng-controller="imageController">
+		
+		<div class="row" style="padding: 3em;">
+				
+			<!-- Test -->
+			<!-- <div class="header-unit">
+				<div id="video-container">
+					<video autoplay loop muted class="fillWidth">
+						<source src="California.mp4" type="video/mp4" />
+						<source src="California.ogg" type="video/ogg" />
+						<source src="California.webm" type="video/webm" />
+					</video>
+				</div>
+			</div> -->
+			<!-- End Test -->
+			
+			<div class="title-row">
+				<span class="font-thin">You belong</span> <span class="font-semibold">everywhere</span><span class="font-thin">, discover new places.</span>
+			</div>
+			
+			<div class="col-12 col-sm-4 col-lg-2 col-xs-6" style="padding: 30px;">
+
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="../hangoutamigosapp/images/sanfrancisco.png"
+							class="img-responsive" ng-click="imageClick('San Francisco')">
+					</div>
+					<div class="panel-body" align="middle">
+						<p>
+							<span class="font-semibold">San Francisco</span> <input
+								type="text" id="textField" ng-model="search"
+								style="display: none" />
+						</p>
+
+					</div>
+				</div>
+				<!--/panel-->
+			</div>
+			<!--/col-->
+
+			<div class="col-12 col-sm-4 col-lg-2 col-xs-6" style="padding: 30px;">
+
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="../hangoutamigosapp/images/seattle.png"
+							class="img-responsive" ng-click="imageClick('Seattle')">
+					</div>
+					<div class="panel-body" align="middle">
+						<p>
+							<span class="font-semibold">Seattle</span> <input type="text"
+								id="textField" ng-model="search" style="display: none" />
+						</p>
+
+					</div>
+				</div>
+				<!--/panel-->
+
+			</div>
+
+			<div class="col-12 col-sm-4 col-lg-2 col-xs-6" style="padding: 30px;">
+
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="../hangoutamigosapp/images/losangeles.png"
+							class="img-responsive" ng-click="imageClick('Los Angeles')"></a>
+					</div>
+					<div class="panel-body" align="middle">
+						<p>
+							<span class="font-semibold">Los Angeles</span> <input type="text"
+								id="textField" ng-model="search" style="display: none" />
+						</p>
+
+					</div>
+				</div>
+				<!--/panel-->
+
+			</div>
+			<!--/col-->
+
+			<div class="col-12 col-sm-4 col-lg-2 col-xs-6" style="padding: 30px;">
+
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="../hangoutamigosapp/images/lasvegas.png"
+							class="img-responsive" ng-click="imageClick('Las Vegas')">
+					</div>
+					<div class="panel-body" align="middle">
+						<p>
+							<span class="font-semibold">Las Vegas</span> <input type="text"
+								id="textField" ng-model="search" style="display: none" />
+						</p>
+
+					</div>
+				</div>
+				<!--/panel-->
+
+			</div>
+
+			<div class="col-12 col-sm-4 col-lg-2 col-xs-6" style="padding: 30px;">
+
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="../hangoutamigosapp/images/miami.png"
+							class="img-responsive" ng-click="imageClick('Miami')">
+					</div>
+					<div class="panel-body" align="middle">
+						<p>
+							<span class="font-semibold">Miami</span> <input type="text"
+								id="textField" ng-model="search" style="display: none" />
+						</p>
+
+					</div>
+				</div>
+				<!--/panel-->
+
+			</div>
+			<!--/col-->
+
+			<div class="col-12 col-sm-4 col-lg-2 col-xs-6" style="padding: 30px;">
+
+				<div class="panel panel-default">
+					<div class="panel-thumbnail">
+						<img src="../hangoutamigosapp/images/chicago.png"
+							class="img-responsive" ng-click="imageClick('Chicago')">
+					</div>
+					<div class="panel-body" align="middle">
+						<p>
+							<span class="font-semibold">Chicago</span> <input type="text"
+								id="textField" ng-model="search" style="display: none" />
+						</p>
+
+					</div>
+				</div>
+				<!--/panel-->
+
+			</div>
+		</div>
+	</div>
+	<!-- /slide3 -->
+
+
+	<!-- === Slide 4 - Process === -->
+	<div class="slide story" id="slide-4" data-slide="4">
+		<div class="container">
+			<div class="row title-row">
+				<div class="col-12 font-thin">
+					See us <span class="font-semibold">at work. <span
+						class="font-thin">Press play <i class="icon icon-play" style="font-size: 75%;"></i></span>
+				</div>
+				<!-- <video width="700" height="450" controls="controls" preload="true">
+					<source src="/hangoutamigosapp/media/gopro.mov" type="video/mov" />
+					<source src="/hangoutamigosapp/media/gopro.mp4" type="video/mp4" />
+					<source src="/hangoutamigosapp/media/gopro.oog" type="video/oog" />
+				</video>
+ -->			<iframe width="700" height="450" src="https://www.youtube.com/embed/xMp_o_fr0fw" frameborder="0" allowfullscreen></iframe>
+ 			</div>
+			<!-- /row -->
+
+			<div class="row subtitle-row"></div>
+
+
+		</div>
+
+	</div>
+
+
+	<!-- === Slide 6 / Contact === -->
+	<div class="slide story" id="slide-6" data-slide="6">
+		<div class="container">
+			<div class="row title-row">
+				<div class="col-12 font-light">
+					Leave us a <span class="font-semibold">message </span><i
+						class="icon icon-hand-down" style="font-size: 85%;"></i>
+				</div>
+				<!-- <div class="col-sm-1 hidden-sm">&nbsp;</div> -->
+				<div id="map-canvas" style="width: 100%; height: 380px;"></div>
+
+			<!-- </div> -->
+			<!-- /row -->
+			<div id="contact-row-4"  style="padding-top: 0;">
+				<div class="col-sm-1 hidden-sm">&nbsp;</div>
+				<div class="col-12 col-sm-2 with-hover-text">
+					<p>
+						<a target="_blank" href="#"><i class="icon icon-phone"></i></a>
+					</p>
+					<span class="hover-text font-light ">+1 (669)224 9632</span></a>
+				</div>
+				<!-- /col12 -->
+				<div class="col-12 col-sm-2 with-hover-text">
+					<p>
+						<a target="_blank" href="#"><i class="icon icon-envelope"></i></a>
+					</p>
+					<span class="hover-text font-light ">hangoutamigos@gmail.com</span></a>
+				</div>
+				<!-- /col12 -->
+				<div class="col-12 col-sm-2 with-hover-text">
+					<p>
+						<a target="_blank" href="#"><i class="icon icon-home"></i></a>
+					</p>
+					<span class="hover-text font-light ">San Jose, USA<br>zip
+						code 95110
+					</span></a>
+				</div>
+				<!-- /col12 -->
+				<div class="col-12 col-sm-2 with-hover-text">
+					<p>
+						<a target="_blank" href="#"><i class="icon icon-facebook"></i></a>
+					</p>
+					<span class="hover-text font-light ">facebook/hangoutamigos</span></a>
+				</div>
+				<!-- /col12 -->
+				<div class="col-12 col-sm-2 with-hover-text">
+					<p>
+						<a target="_blank" href="#"><i class="icon icon-twitter"></i></a>
+					</p>
+					<span class="hover-text font-light ">@Hangout_Amigos</span></a>
+				</div>
+				<!-- /col12 -->
+				<div class="col-sm-1 hidden-sm">&nbsp;</div>
+			</div>
+			<!-- /row -->
+			</div>	<!-- edited -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Slide 6 -->
+
+	<!-- Log In Modal -->
+	<div class="modal fade" id="myModal1" role="dialog"
+		ng-controller="loginController">
+		<div class="modal-dialog"
+			style="height: 600px; width: 350px; top: 50px; left: 50px">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="modalLabel1">
+						<strong>Login</strong>
+					</h4>
+					<p>OR</p>
+					<div class="fb-login-button" data-max-rows="1" data-size="large"
+						data-show-faces="false" data-auto-logout-link="false">Sign
+						in with Facebook</div>
+				</div>
+				<form name="loginform">
+					<div class="modal-body"
+						style="display: block; height: 100%; max-height: 590px;">
+
+						<input class="form-control" type="email" id="emailaddress1"
+							name="loginform_email" ng-model="loginform_email"
+							placeholder="Email Address" style="width: 290px" required
+							autofocus>
+						<div class="error-container"
+							ng-show="loginform.loginform_email.$dirty && loginform.loginform_email.$invalid">
+							<small class="errorbox"
+								ng-show="loginform.loginform_email.$error.required"><span
+								style="color: red">Email address is required</span></small> <small
+								class="errorbox"
+								ng-show="loginform.loginform_email.$error.email"><span
+								style="color: red">Email id is invalid</span></small>
+						</div>
+
+						<br> <input class="form-control" type="password"
+							id="password1" name="loginform_password"
+							ng-model="loginform_password" placeholder="Password"
+							style="width: 290px" required>
+						<div class="error-container"
+							ng-show="loginform.loginform_password.$dirty && loginform.loginform_password.$invalid">
+							<small class="errorbox"
+								ng-show="loginform.loginform_password.$error.required"><span
+								style="color: red">Password is required</span></small>
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger"
+							ng-disabled="loginform.$invalid"
+							ng-click="loginform_login(loginform_email, loginform_password)"
+							style="width: 290px; float: left" id="login">Log In</button>
+						<br> <br> <br>
+						<div class="errorbox"
+							style="position: relative; padding-top: 1%; padding-left: 40px; color: red" align="center">
+							{{ error }}</div>
+						<div class="successbox"
+							style="position: relative; padding-top: 1%; padding-left: 40px; color: green" align="center">
+							{{success}}</div>
+
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<!-- New sign up -->
+
+	<div class="modal fade" id="myModal" role="dialog"
+		ng-controller="registerController">
+		<div class="modal-dialog"
+			style="height: 500px; width: 470px; top: 50px; left: 50px">
+
+			<div class="modal-content">
+				<div class="modal-header">
+
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" style="color: red">SignUp</h4>
+				</div>
+				<div class="modal-body" style="display: block">
+					<a class="btn btn-block btn-social btn-facebook center-block"
+						onclick="Login();"> <span class="fa fa-facebook"></span>
+						<p class="text-center">Sign Up with Facebook</p>
+					</a>
+					<p align="center">
+						<font size="2">Don't worry, we never post without your
+							permission.</font>
+					</p>
+					<hr>
+					<div class="g-signin2" data-width="325" data-height="40"
+						data-longtitle="true" data-onsuccess="onSignIn"></div>
+					<hr>
+
+					<form name="signupform" class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-10 col-md-6 col-lg-6">
+								<input type="text" class="form-control" id="userfirstname"
+									placeholder="First Name" name="signupform_firstname"
+									ng-model="signupform_firstname" required>
+								<div class="error-container"
+									ng-show="signupform.signupform_name.$dirty && signupform.signupform_name.$invalid">
+									<small class="errorbox"
+										ng-show="signupform.signupform_name.$error.required"><span
+										style="color: red">First name is required</span></small>
+								</div>
+								<br>
+							</div>
+							<div class="col-sm-10 col-md-6 col-lg-6">
+								<input type="text" class="form-control" id="userlastname"
+									placeholder="Last Name" name="signupform_lastname"
+									ng-model="signupform_lastname" required>
+								<div class="error-container"
+									ng-show="signupform.signupform_name.$dirty && signupform.signupform_name.$invalid">
+									<small class="errorbox"
+										ng-show="signupform.signupform_name.$error.required"><span
+										style="color: red">Last name is required</span></small>
+								</div>
+								<br>
+							</div>
+							<div class="col-sm-10 col-md-12 col-lg-12">
+								<input type="email" class="form-control" id="useremail"
+									placeholder="Email ID" name="signupform_email"
+									ng-model="signupform_email" required>
+								<div class="error-container"
+									ng-show="signupform.signupform_email.$dirty && signupform.signupform_email.$invalid">
+									<small class="errorbox"
+										ng-show="signupform.signupform_email.$error.required"><span
+										style="color: red">Email address is required</span></small> <small
+										class="errorbox"
+										ng-show="signupform.signupform_email.$error.email"><span
+										style="color: red">Email id is invalid</span></small>
+								</div>
+								<br>
+							</div>
+							<div class="col-sm-10 col-md-12 col-lg-12">
+								<input type="password" class="form-control" id="userpassword"
+									placeholder="Password" name="signupform_password"
+									ng-model="signupform_password" required>
+								<div class="error-container"
+									ng-show="signupform.signupform_password.$dirty && signupform.signupform_password.$invalid">
+									<small class="errorbox"
+										ng-show="signupform.signupform_password.$error.required"><span
+										style="color: red">Password is required</span></small>
+								</div>
+								<br>
+							</div>
+							<div class="col-sm-10 col-md-12 col-lg-12">
+								<button type="button" class="btn btn-block btn-success"
+									ng-disabled="signupform.$invalid"
+									ng-click="signupform_signup(signupform_firstname, signupform_lastname, signupform_email, signupform_password)">Sign
+									Up</button>
+							</div>
+
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<div class="errorbox"
+						style="position: relative; padding-top: 10px; padding-left: 80px; color: red"
+						align="center">{{ error }}</div>
+					<div class="successbox"
+						style="position: relative; padding-top: 10px; padding-left: 80px; color: green"
+						align="center">{{success}}</div>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div style="padding-top: 50px;" ng-include src="'footer.html'"></div>
+
+<!-- JS for signup with fb -->
+<!--Script for Login with Fb-->
+<script src="//connect.facebook.net/en_US/all.js"></script>
+<script>
+	//new sign up
+
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId : '493989790793842', // App ID
+			channelUrl : 'YOUR_WEBSITE_CHANNEL_URL',
+			status : true, // check login status
+			cookie : true, // enable cookies to allow the server to access the session
+			xfbml : true
+		// parse XFBML
+		});
+
+		FB.Event.subscribe('auth.authResponseChange', function(response) {
+			if (response.status === 'connected') {
+				// document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
+
+			} else if (response.status === 'not_authorized') {
+				//FAILED
+			} else {
+				// document.getElementById("message").innerHTML +=  "<br>Connected to Facebook";
+			}
+		});
+
+	};
+
+	(function(d) {
+		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement('script');
+		js.id = id;
+		js.async = true;
+		js.src = "//connect.facebook.net/en_US/all.js";
+		ref.parentNode.insertBefore(js, ref);
+	}(document));
+
+	function Login() {
+
+		FB.login(function(response) {
+			if (response.authResponse) {
+				getUserInfo(); // Get User Information.
+
+			} else {
+				console.log('Authorization failed.');
+			}
+		}, {
+			scope : 'public_profile, email'
+		});
+	}
+
+	function getUserInfo() {
+		FB.api('/me', 'get', {
+			fields : 'id,name,email'
+		}, function(response) {
+			console.log(JSON.stringify(response));
+		});
+	}
+
+	function Logout() {
+		FB.logout(function() {
+			document.location.reload();
+		});
+
+	}
+
+	// Google maps js
+	var map;
+	function initialize() {
+		var geocoder = new google.maps.Geocoder();
+		var address = "1 Washington Sq, San Jose, CA 95192";
+		var mapOptions = {
+			zoom : 15,
+			mapTypeId : google.maps.MapTypeId.ROADMAP,
+			scrollwheel : false
+		};
+		map = new google.maps.Map(document.getElementById('map-canvas'),
+				mapOptions);
+
+		if (geocoder) {
+			geocoder.geocode({
+				'address' : address
+			}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+						map.setCenter(results[0].geometry.location);
+
+						var infowindow = new google.maps.InfoWindow({
+							content : address,
+							map : map,
+							position : results[0].geometry.location,
+						});
+
+						var marker = new google.maps.Marker({
+							position : results[0].geometry.location,
+							map : map,
+							title : address
+						});
+
+					} else {
+						alert("No results found");
+					}
+				}
+			});
+		}
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<script>
+	//new sign up
+	function onSignIn(googleUser) {
+		var profile = googleUser.getBasicProfile();
+		console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+		console.log("Name: " + profile.getName());
+		console.log("Email: " + profile.getEmail());
+	};
+</script>
